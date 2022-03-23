@@ -1,0 +1,21 @@
+<% if user_signed_in? %>
+<h1>Friends List</h1>
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-dark">
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Twitter</th>
+      <th colspan="2"></th>
+      
+    </tr>
+  </thead>
+    <% @friends.each do |friend| %>
+      <%= render friend %>
+    <% end %>
+</table>
+<%= link_to "New friend", new_friend_path, class: "btn btn-primary" %>
+<% else %>
+ <h1>No User Signed In</h1>
+<% end %>
